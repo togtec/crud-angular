@@ -7,3 +7,12 @@
   --mat-toolbar-container-background-color: #000000;
   --mat-toolbar-container-text-color: #ffffff;
 }
+
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 25px;
+}
