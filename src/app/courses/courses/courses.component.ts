@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
+import { CategoryPipe } from '../../shared/pipes/category-pipe';
 
 
 @Component({
   selector: 'app-courses',
-  imports: [CommonModule, materialImports],
+  imports: [CommonModule, materialImports, CategoryPipe],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
