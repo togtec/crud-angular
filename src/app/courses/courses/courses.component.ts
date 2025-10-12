@@ -18,7 +18,7 @@ import { CategoryPipe } from '../../shared/pipes/category-pipe';
 })
 export class Courses {
   courses$: Observable<Course[]>;
-  displayedColumns = ['name', 'category'];
+  displayedColumns = ['_id', 'name', 'category'];
   private service = inject(CoursesService);
   private dialog = inject(MatDialog)
 
