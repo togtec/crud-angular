@@ -5,6 +5,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 export const materialImports = [
   MatTableModule,
@@ -13,5 +14,6 @@ export const materialImports = [
   MatProgressSpinnerModule,
   MatDialogModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatTooltipModule
 ];

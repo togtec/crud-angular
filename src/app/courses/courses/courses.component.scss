@@ -4,10 +4,17 @@
 }
 
 .courses-toolbar {
-  --mat-toolbar-container-background-color: #000000;
-  --mat-toolbar-container-text-color: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
+.edit-button mat-icon {
+  color: #1C8CE7;
+}
+
+.delete-button mat-icon {
+  color: #C4100E;
+}
 
 .loading-spinner {
   display: flex;

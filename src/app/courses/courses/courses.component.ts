@@ -8,6 +8,7 @@ import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 import { CategoryPipe } from '../../shared/pipes/category-pipe';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,9 +19,11 @@ import { CategoryPipe } from '../../shared/pipes/category-pipe';
 })
 export class Courses {
   courses$: Observable<Course[]>;
-  displayedColumns = ['_id', 'name', 'category'];
+  displayedColumns = ['_id', 'name', 'category', 'actions'];
   private service = inject(CoursesService);
-  private dialog = inject(MatDialog)
+  private dialog = inject(MatDialog);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   constructor() {
     this.courses$ = this.service.list()
@@ -30,6 +33,11 @@ export class Courses {
         return of([]) //returns an Observable with an empty array
       })
     );
+  }
+
+  onAdd() {
+    //console.log('onAdd');
+    this.router.navigate(['new'], {relativeTo: this.route})
   }
 
   openDialogError(errorMessage: string) {

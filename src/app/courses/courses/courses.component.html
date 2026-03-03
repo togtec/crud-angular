@@ -7,24 +7,43 @@
 
     <div *ngIf="courses$ | async as courses; else loading">
       <table mat-table [dataSource]="courses" class="mat-elevation-z8">
-        <!-- _id Column -->
+        <!-- _id column -->
         <ng-container matColumnDef="_id">
           <th mat-header-cell *matHeaderCellDef> ID </th>
           <td mat-cell *matCellDef="let course"> {{ course._id }} </td>
         </ng-container>
 
-        <!-- name Column -->
+        <!-- name column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Curso </th>
           <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
         </ng-container>
 
-        <!-- category Column -->
+        <!-- category column -->
         <ng-container matColumnDef="category">
           <th mat-header-cell *matHeaderCellDef> Categoria </th>
           <td mat-cell *matCellDef="let course"> {{ course.category }}
             <mat-icon aria-hidden="false" aria-label="Categoria do Curso" fontIcon="{{ course.category | category }}"></mat-icon>
           </td>
+        </ng-container>
+
+        <!-- action column -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+            <button matMiniFab matTooltip="Adicionar Curso" aria-label="Adicionar Curso">
+              <mat-icon (click)="onAdd()">add</mat-icon>
+            </button>
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let course">
+            <button matIconButton matTooltip="Editar Curso" aria-label="Editar Curso" class="edit-button">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button matIconButton matTooltip="Remover Curso" aria-label="Remover Curso" class="delete-button">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
