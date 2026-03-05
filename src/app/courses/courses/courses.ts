@@ -2,22 +2,23 @@ import { Component, inject } from '@angular/core';
 import { Course } from '../model/course';
 import { materialImports } from '../../shared/material/material.imports';
 import { CoursesService } from '../services/courses.service';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog';
 import { CategoryPipe } from '../../shared/pipes/category-pipe';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-courses',
+  standalone: true,
   imports: [CommonModule, materialImports, CategoryPipe],
-  templateUrl: './courses.component.html',
-  styleUrl: './courses.component.scss'
+  templateUrl: './courses.html',
+  styleUrl: './courses.scss'
 })
-export class Courses {
+export class CoursesComponent {
   courses$: Observable<Course[]>;
   displayedColumns = ['_id', 'name', 'category', 'actions'];
   private service = inject(CoursesService);
