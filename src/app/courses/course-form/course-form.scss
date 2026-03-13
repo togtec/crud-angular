@@ -1,0 +1,31 @@
+.course-form-card {
+  max-width: 80%;
+  margin: 2em auto; /* auto horizontally centers */
+}
+
+.course-form-toolbar {
+  background-color: #000000;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.full-width {
+  width: 100%;
+  min-width: 230px;
+}
+
+.center-actions {
+   display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.save-button {
+  background-color: #1C8CE7 !important;
+  color: #ffffff !important;
+}
+
+.cancel-button {
+  background-color: #dee2e6 !important;
+  color: #000000 !important;
+}
