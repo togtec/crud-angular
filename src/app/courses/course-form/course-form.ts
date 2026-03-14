@@ -32,7 +32,7 @@ export class CourseFormComponent {
     //console.log('onSubmit');
     //console.log(this.form.value);
     this.service.save(this.form.value).subscribe({
-      next: () => this.onSucess(),
+      next: () => this.onSuccess(),
       error: () => this.onError()
     });
   }
@@ -41,7 +41,7 @@ export class CourseFormComponent {
     this.location.back();
   }
 
-  private onSucess() {
+  private onSuccess() {
     this._snackBar.open('Curso salvo com sucesso!', '', { duration: 3000 });
     this.location.back();
   }
