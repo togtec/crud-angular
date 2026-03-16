@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { materialImports } from '../../shared/material/material.imports';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CoursesService } from '../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,15 +18,21 @@ import { Location } from '@angular/common';
   styleUrl: './course-form.scss'
 })
 export class CourseFormComponent {
-  private formBuider = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
   private service = inject(CoursesService);
   private _snackBar = inject(MatSnackBar);
   private location = inject(Location);
 
-  form: FormGroup = this.formBuider.group({
-    name: [null],
-    category: [null]
-  });
+  form: FormGroup = this.formBuilder.group({
+    name: new FormControl<string>('', {
+       nonNullable: true,
+       validators: Validators.required
+    }),
+    category: new FormControl<string>('', {
+      nonNullable: true,
+      validators: Validators.required
+    })
+  })
 
   onSubmit() {
     //console.log('onSubmit');
