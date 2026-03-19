@@ -1,19 +1,11 @@
-.courses-card {
+mat-card {
   max-width: 1024px;
-  margin: 2em auto; /* auto horizontally centers */
+  margin: 2em auto;  /* auto horizontally centers */
 }
 
 .courses-toolbar {
   background-color: #000000;
   color: #ffffff;
-}
-
-.edit-button mat-icon {
-  color: #1C8CE7;
-}
-
-.delete-button mat-icon {
-  color: #C4100E;
 }
 
 .loading-spinner {
@@ -23,23 +15,3 @@
   background: rgba(0, 0, 0, 0.15);
   padding: 25px;
 }
-
-.mat-column-category {
-  max-width: 80px;
-  // background-color: antiquewhite;
-}
-
-.category-content  {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.mat-column-actions {
-  text-align: center;
-  max-width: 50px;
-  // background-color: aqua;
-}
-
-

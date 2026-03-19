@@ -7,24 +7,21 @@ import { CommonModule } from '@angular/common';
 import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog';
-import { CategoryPipe } from '../../shared/pipes/category-pipe';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CourseListComponent } from '../course-list/course-list';
 
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, materialImports, CategoryPipe],
+  imports: [CommonModule, materialImports, CourseListComponent],
   templateUrl: './courses.html',
   styleUrl: './courses.scss'
 })
 export class CoursesComponent {
   courses$: Observable<Course[]>;
-  displayedColumns = ['_id', 'name', 'category', 'actions'];
   private service = inject(CoursesService);
   private dialog = inject(MatDialog);
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
+
 
   constructor() {
     this.courses$ = this.service.list()
@@ -34,11 +31,6 @@ export class CoursesComponent {
         return of([]) //returns an Observable with an empty array
       })
     );
-  }
-
-  onAdd() {
-    //console.log('onAdd');
-    this.router.navigate(['new'], {relativeTo: this.route})
   }
 
   openDialogError(errorMessage: string) {
