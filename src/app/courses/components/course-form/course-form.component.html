@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Nome" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="category">
+      <mat-option value="null"></mat-option>
+      <mat-option value="Front-End">Front-End</mat-option>
+      <mat-option value="Back-End">Back-End</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="center-actions">
+    <button matButton="tonal" class="save-button" type="submit">Salvar</button>
+    <button matButton="tonal" class="cancel-button" (click)="onCancel()" type="button">Cancelar</button>
+  </div>
+</form>

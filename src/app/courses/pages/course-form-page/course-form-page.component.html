@@ -1,0 +1,16 @@
+<mat-card class="course-form-card" appearance="outlined">
+  <mat-card-content>
+
+    <mat-toolbar class="course-form-toolbar">
+      <span>Curso - Detalhes</span>
+    </mat-toolbar>
+
+    <app-course-form
+      [form]="form"
+      (submit)="onSubmit()"
+      (cancel)="onCancel()"
+    ></app-course-form>
+
+  </mat-card-content>
+</mat-card>
+

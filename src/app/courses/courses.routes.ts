@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { CoursesComponent } from './courses/courses';
-import { CourseFormComponent } from './course-form/course-form';
+import { CoursesPageComponent } from './pages/courses-page/courses-page.component';
+import { CourseFormPageComponent } from './pages/course-form-page/course-form-page.component';
 
 export const COURSES_ROUTES: Routes = [
-  { path: '', component: CoursesComponent },
-  { path: 'new', component: CourseFormComponent }
+  { path: '', component: CoursesPageComponent },
+  { path: 'new', component: CourseFormPageComponent }
 ];
