@@ -2,13 +2,14 @@
   <mat-card-content>
 
     <mat-toolbar class="courses-toolbar">
-      <span>Cursos Disponíveis</span>
+      <span>Available Courses</span>
     </mat-toolbar>
 
     <app-course-list
       *ngIf="courses$ | async as coursesList; else loading"
       [courses] = "coursesList"
       (add) = "onAdd()"
+      (edit)="onEdit($event)"
     ></app-course-list>
 
     <ng-template #loading>

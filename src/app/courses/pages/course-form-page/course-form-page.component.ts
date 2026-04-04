@@ -5,6 +5,8 @@ import { CoursesService } from '../../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { CourseFormComponent } from '../../components/course-form/course-form.component';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from '../../model/course';
 
 @Component({
   selector: 'app-course-form-page',
@@ -22,8 +24,14 @@ export class CourseFormPageComponent {
   private service = inject(CoursesService);
   private _snackBar = inject(MatSnackBar);
   private location = inject(Location);
+  private route = inject(ActivatedRoute);
+  public toolbarTitle = '';
+
 
   form: FormGroup = this.formBuilder.group({
+    _id: new FormControl<string>('', {
+       nonNullable: true
+    }),
     name: new FormControl<string>('', {
        nonNullable: true,
        validators: Validators.required
@@ -33,6 +41,23 @@ export class CourseFormPageComponent {
       validators: Validators.required
     })
   })
+
+  ngOnInit() {
+    const course: Course = this.route.snapshot.data['courseData'];
+
+    this.form.patchValue({
+      _id: course._id,
+      name: course.name,
+      category: course.category
+    });
+
+    //define toolbar title
+    if (course && course._id) {
+      this.toolbarTitle = 'Edit Course';
+    } else {
+      this.toolbarTitle = 'Create Course';
+    }
+  }
 
   onSubmit() {
     this.service.save(this.form.value).subscribe({
