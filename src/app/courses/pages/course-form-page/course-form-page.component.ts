@@ -71,12 +71,12 @@ export class CourseFormPageComponent {
   }
 
   private onSuccess() {
-    this._snackBar.open('Curso salvo com sucesso!', '', { duration: 3000 });
+    this._snackBar.open('Course saved successfully!', '', { duration: 3000 });
     this.location.back();
   }
 
   private onError() {
-    this._snackBar.open('Erro ao salvar curso!', '', { duration: 3000 });
+    this._snackBar.open('Error saving course!', '', { duration: 3000 });
   }
 
 }

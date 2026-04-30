@@ -18,6 +18,7 @@ export class CourseListComponent {
 
   @Output() add = new EventEmitter<void>();
   @Output() edit = new EventEmitter<Course>();
+  @Output() delete = new EventEmitter<Course>();
 
   onAdd() {
     this.add.emit();
@@ -25,6 +26,10 @@ export class CourseListComponent {
 
   onEdit(course: Course) {
     this.edit.emit(course);
+  }
+
+  onDelete(course: Course) {
+    this.delete.emit(course);
   }
 
 }

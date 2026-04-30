@@ -1,0 +1,6 @@
+<h2 mat-dialog-title align="center" >CONFIRMATION REQUIRED</h2>
+<mat-dialog-content align="center">{{ data }}</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button matButton class="yes-button" (click)="onConfirm(true)">Yes</button>
+  <button matButton class="no-button" (click)="onConfirm(false)">No</button>
+</mat-dialog-actions>

@@ -10,5 +10,5 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './error-dialog.scss'
 })
 export class ErrorDialogComponent {
-  data = inject<string>(MAT_DIALOG_DATA);
+  readonly data = inject<string>(MAT_DIALOG_DATA);
 }

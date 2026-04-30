@@ -42,7 +42,10 @@
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button matIconButton matTooltip="Remove Course" aria-label="Remove Course" class="delete-button">
+        <button matIconButton matTooltip="Remove Course"
+                class="delete-button"
+                aria-label="Remove Course"
+                (click)="onDelete(course)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
