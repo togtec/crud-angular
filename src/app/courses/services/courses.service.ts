@@ -34,7 +34,7 @@ export class CoursesService {
   }
 
   remove(id: string) {
-    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+    return this.httpClient.delete<void>(`${this.API}/${id}`).pipe(first());
   }
 
   private create(record: Partial<Course>) {
