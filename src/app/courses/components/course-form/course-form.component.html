@@ -1,15 +1,23 @@
 <form [formGroup]="form">
   <mat-form-field class="full-width">
-    <input matInput placeholder="Name" formControlName="name">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-hint align="end">{{form.get('name')?.value.length || 0}}/100</mat-hint>
+    @if (form.get('name')?.invalid) {
+      <mat-error>{{getErrorMessage('name')}}</mat-error>
+    }
   </mat-form-field>
 
-  <mat-form-field class="full-width">
+  <mat-form-field class="full-width" >
     <mat-label>Categoria</mat-label>
     <mat-select formControlName="category">
       <mat-option value="null"></mat-option>
       <mat-option value="Front-End">Front-End</mat-option>
       <mat-option value="Back-End">Back-End</mat-option>
     </mat-select>
+    @if (form.get('category')?.invalid) {
+      <mat-error>{{getErrorMessage('category')}}</mat-error>
+    }
   </mat-form-field>
 
   <div class="center-actions">

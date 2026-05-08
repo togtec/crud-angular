@@ -34,7 +34,11 @@ export class CourseFormPageComponent {
     }),
     name: new FormControl<string>('', {
        nonNullable: true,
-       validators: Validators.required
+       validators: [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(100)
+      ]
     }),
     category: new FormControl<string>('', {
       nonNullable: true,
@@ -60,6 +64,11 @@ export class CourseFormPageComponent {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
     this.service.save(this.form.value).subscribe({
       next: () => this.onSuccess(),
       error: () => this.onError()

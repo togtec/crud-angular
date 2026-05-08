@@ -19,4 +19,22 @@ export class CourseFormComponent {
     this.cancel.emit();
   }
 
+  getErrorMessage(fieldName: string) {
+    const field = this.form.get(fieldName);
+
+    if (field?.hasError('required')) {
+      return 'Required field';
+    }
+
+    if (field?.hasError('minlength')) {
+      return 'Minimum 5 characters';
+    }
+
+    if (field?.hasError('maxlength')) {
+      return 'Maximum 100 characters';
+    }
+
+    return 'Invalid field';
+  }
+
 }
