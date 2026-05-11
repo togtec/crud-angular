@@ -18,6 +18,10 @@ tr[mat-header-row] {
   color: #C4100E;
 }
 
+.mat-column-name {
+  max-width: 250px;
+}
+
 .mat-column-category {
   max-width: 80px;
   // background-color: antiquewhite;
