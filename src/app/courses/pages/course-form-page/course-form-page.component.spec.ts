@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseFormPageComponent } from './course-form-page.component.js';
 
-describe('CoursesPageComponent', () => {
+describe('CourseFormPage', () => {
   let component: CourseFormPageComponent;
   let fixture: ComponentFixture<CourseFormPageComponent>;
 

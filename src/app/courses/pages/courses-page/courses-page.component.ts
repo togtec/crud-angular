@@ -22,14 +22,19 @@ import { ConfirmationDialogComponent } from '../../../shared/confirmation-dialog
 })
 export class CoursesPageComponent {
   courses$: Observable<Course[]> | null = null;
+
   private service = inject(CoursesService);
+
   private dialog = inject(MatDialog);
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
   private _snackBar = inject(MatSnackBar);
 
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
-  constructor() {
+
+  constructor() { }
+
+   ngOnInit() {
     this.refresh();
    }
 
@@ -66,12 +71,12 @@ export class CoursesPageComponent {
   }
 
   openDialogError(errorMessage: string) {
-        this.dialog.open(ErrorDialogComponent, {
+    this.dialog.open(ErrorDialogComponent, {
       data: errorMessage
     });
   }
   openConfirmationDialog(confirmationMessage: string) {
-        return this.dialog.open(ConfirmationDialogComponent, {
+    return this.dialog.open(ConfirmationDialogComponent, {
       data: confirmationMessage
     });
   }
