@@ -13,7 +13,13 @@ import { MatInputModule } from '@angular/material/input';
 export class CourseFormComponent {
   @Input() form!: FormGroup;
 
+  @Output() save = new EventEmitter<void>();
+
   @Output() cancel = new EventEmitter<void>();
+
+  onSave() {
+    this.save.emit();
+  }
 
   onCancel() {
     this.cancel.emit();

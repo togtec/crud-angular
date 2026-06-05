@@ -63,7 +63,7 @@ export class CourseFormPageComponent {
     }
   }
 
-  onSubmit() {
+  onSave() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
